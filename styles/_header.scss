@@ -1,0 +1,74 @@
+#headerBar {
+    height:50px;
+    width:100%;
+    background:#474343;
+    z-index:40;
+    border-bottom:1px solid #fff
+}
+
+#homeButton {
+    // top:7.5px;
+    // z-index:50;
+    border:none!important;
+}
+
+#currentLoc {
+    border:none!important;
+}
+
+#searchBar {
+  padding-top: 8px;
+  margin-top: 0px;
+  height: 40px;
+  width: 100%;
+}
+
+#searchBar_input {
+  width:90%
+  // !important;
+}
+
+.esriGeocoder, .esriGeocoderResults {
+  width:600px!important;
+}
+
+.esriGeocoderContainer{
+  z-index:100!important;
+}
+
+
+// input#searchBar {
+//     padding-top:8px!important
+// }
+
+// input#searchBar.form-control {
+//     margin-top:0!important;
+//     height:40px!important
+// }
+
+#helpMenu a {
+    color:#fff
+}
+
+#helpMenu a:hover {
+    color:#000!important;
+    text-decoration:none
+}
+
+#helpImageContainer {
+    display:inline-block
+}
+
+.helpImage {
+    width:50%;
+    float:left
+}
+
+.helpImage img {
+    height:30px;
+    width:auto
+}
+
+.homeFindButtons {
+  margin-top: 5px;
+}

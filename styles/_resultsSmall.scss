@@ -1,0 +1,36 @@
+#viewReport a:visited, #viewReport a:hover, #viewReport a:link, #viewReport a:active, #emailReport a:visited, #emailReport a:hover, #emailReport a:link, #emailReport a:active{
+  font-size: 18px;
+  color: #fff;
+  text-decoration:none;
+}
+
+.resultsDisplay {
+    display:inline-block;
+    font-size:14px;
+   /* background-color:#474343; */
+    color:#fff;
+    z-index:5
+}
+
+.resultsButtonToolbar{
+    float:right;
+    margin-top: 3px;
+}
+
+.resultsButtonGroup{
+}
+
+#resultsSmall {
+    // display:none;
+    background-color:rgba(0,0,0,.75);
+    font-size:18px;
+    color:#fff;
+    z-index:299;
+    border-top:1px solid #fff;
+    height:300px;
+    width:100%;
+    position:absolute;
+    /*top:213px;*/
+    bottom: 50px;
+    text-align:center;
+}
