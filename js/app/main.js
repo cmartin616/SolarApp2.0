@@ -182,9 +182,9 @@ define([
           el: this.layout.$el.find('.loader-container'),
         });
 
-        this.bottomBar = new BottomBar({
-          el: this.layout.$el.find('.bottomBar-container'),
-        });
+        // this.bottomBar = new BottomBar({
+        //   el: this.layout.$el.find('.bottomBar-container'),
+        // });
 
         this.resultsSmall = new ResultsSmall({
           el: this.layout.$el.find('.resultsSmall-container'),
