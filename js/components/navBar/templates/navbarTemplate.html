@@ -1,69 +1,142 @@
 <div class="container-fluid">
-    <div class="row" style="padding-top:5px">
+    <div class="row">
         <div id="headerBar">
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="searchBar"></div>
+                        <!-- <div id="searchBar"></div> --
                     </div>
-                </div><!-- /.row -->
-            </div>
+                </div><!-- /.row --
+            </div> -->
 
-            <div class="col-md-6">
-                <div class="btn-toolbar" role="toolbar">
+            <div class="col-md-4">
+                <div class="homeFindButtons">
+
+                    <!-- Menu Dropdown -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle menuButton appButton iconButton" data-toggle="dropdown" id="menuButton">
+                            <i class="fa fa-bars fa-2x"></i>
+                        </button>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown" style="top:50px" id="menuDropdown">
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <div id="helpMenu">
+                                    <a role="menuitem" tabindex="-1" href="#">HELP</a>
+                                </div>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <div id="helpImageContainer">
+                                    <div class="helpImage">
+                                        <a href="http://www.esri.com" target="_blank"><img src="assets/images/powered-by-esri-logo-med.png"></a>
+                                    </div>
+                                    <div class="helpImage">
+                                        <a href="http://www.umn.edu" target="_blanl"><img src="assets/images/UMN_M_white.gif" style="margin-left:20px"></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                     
 
-                    <div class="btn-group baseMapToggle">
+                    <button type="button" class="btn btn-default menuButton appButton iconButton" id="homeButton">
+                        <!-- <img src="assets/images/home_icon.png">
+                        <div class="iconLabel ">Home</div> -->
+                        <i class="fa fa-home fa-2x"></i>
+                    </button>
 
+                    <button type="button" class="btn btn-default menuButton appButton iconButton" id="currentLoc">
+                      <!-- <img src="assets/images/location_icon_ios_2.png">
+                      <div class="iconLabel">Find Me</div> -->
+                      <i class="fa fa-location-arrow fa-2x"></i>
+                    </button>
+
+                    <!-- Basemap Dropdown -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle menuButton appButton iconButton noBorder" data-toggle="dropdown" id="basemapDropdown">
+                            <i class="fa fa-globe fa-2x"></i>
+                        </button>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown" style="top:50px" id="basemapDropdownContent">
+                            <li role="presentation">
+                                <div id="basemapSelectorText">
+                                    Basemap Selector:
+                                </div>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" class="activeButton" id="solarButton">
+                                <a href="#">
+                                    <div class="container-fluid">
+                                        <div class="row no-gutter">
+                                            <div class="col-md-6 basemapGrid basemapImage">
+                                                <img src="assets/images/solarBasemap.png">
+                                            </div>
+                                            <div class="col-md-6 basemapGrid basemapText">
+                                                Solar
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" id="aerialButton">
+                                <a href="#">
+                                    <div class="container-fluid">
+                                        <div class="row no-gutter">
+                                            <div class="col-md-6 basemapGrid basemapImage">
+                                                <img src="assets/images/aerialBasemap.png">
+                                            </div>
+                                            <div class="col-md-6 basemapGrid basemapText">
+                                                Aerial (Imagery)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" id="streetButton">
+                                <a href="#">
+                                    <div class="container-fluid">
+                                        <div class="row no-gutter">
+                                            <div class="col-md-6 basemapGrid basemapImage">
+                                                <img src="assets/images/streetsBasemap.png">
+                                            </div>
+                                            <div class="col-md-6 basemapGrid basemapText">
+                                                Streets
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="col-md-4">
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group baseMapToggle">
                         <button type="button" id="solarButton" class="btn btn-default btn-group_leftButton activeButton appButton">Solar</button>
                         <button type="button" id="aerialButton" class="btn btn-default appButton">Aerial</button>
                         <button type="button" id="streetButton" class="btn btn-default appButton btn-group_rightButton">Streets</button>
                     </div>
+                </div>
+            </div> -->
 
-                    <div class="btn-group homeFindButtons">
-                        <button type="button" class="btn btn-default menuButton appButton iconButton" id="homeButton">
-                            <img src="assets/images/home_icon.png">
-                            <div class="iconLabel ">Home</div>
-                        </button>
-                        <button type="button" class="btn btn-default menuButton appButton iconButton" id="currentLoc">
-                          <img src="assets/images/location_icon_ios_2.png">
-                          <div class="iconLabel">Find Me</div>
-                        </button>
-                        <button type="button" class="btn btn-default dropdown-toggle menuButton appButton iconButton" data-toggle="dropdown" id="menuButton">
-                            <i class="fa fa-bars"></i>
-                        </button>
+            <div class="col-md-4">
+                <img src="assets/images/color_ramp_white_text.png" class="imgCenter headerColorRamp">
+            </div>
+
+            <div class="col-md-4">
+                <div class="appBrand floatRight">
+                    <div class='appIcon'>
+                        <img src="assets/images/solar-app-transparent50.png"
                     </div>
-
-                    <div class="dropdown" style="float:right; margin-right:20px;">
-                        <div class="btn-group">
-                            <!-- <button type="button" class="btn btn-default dropdown-toggle menuButton appButton" data-toggle="dropdown">
-                                Menu
-                                <span>
-                                    <i class="fa fa-caret-down"></i>
-                                <i class="fa fa-bars"></i>
-                                <!-- </span>
-                            </button> -->
-
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1" style="top:47px">
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation">
-                                    <div id="helpMenu">
-                                        <a role="menuitem" tabindex="-1" href="#">HELP</a>
-                                    </div>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation">
-                                    <div id="helpImageContainer">
-                                        <div class="helpImage">
-                                            <a href="http://www.esri.com" target="_blank"><img src="assets/images/powered-by-esri-logo-med.png"></a>
-                                        </div>
-                                        <div class="helpImage">
-                                            <a href="http://www.umn.edu" target="_blanl"><img src="assets/images/UMN_M_white.gif" style="margin-left:20px"></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class='appTitle'>
+                        Minnesota Solar Suitability Analysis Tool
                     </div>
                 </div>
             </div>
