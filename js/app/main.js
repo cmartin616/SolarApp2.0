@@ -7,9 +7,9 @@ define([
     'components/helpSplash/views/helpSplashView',
     'components/loadSplash/views/loadSplashView',
     'components/resultsSmall/views/resultsSmallView',
-    'components/bottomBar/views/bottomBarView',
     'components/report/views/reportView',
     'components/calculator/views/calculatorView',
+    'components/geocoder/views/geocoderView',
 
     'components/query/controller/queryController',
 
@@ -27,7 +27,7 @@ define([
 
     config, Layout,
 
-    Navbar, HelpSplash, LoadSplash, ResultsSmall, BottomBar, Report, Calculator,
+    Navbar, HelpSplash, LoadSplash, ResultsSmall, Report, Calculator, Geocoder,
 
     query,
 
@@ -171,31 +171,31 @@ define([
         app.query = {};
 
         this.navbar = new Navbar({
-          el: this.layout.$el.find('.navbar-container'),
+          el: this.layout.$el.find('.navbar-container')
         });
 
         this.helpSplash = new HelpSplash({
-          el: this.layout.$el.find('.helpContainer'),
+          el: this.layout.$el.find('.helpContainer')
         });
 
         this.loadSplash = new LoadSplash({
-          el: this.layout.$el.find('.loader-container'),
+          el: this.layout.$el.find('.loader-container')
         });
 
-        // this.bottomBar = new BottomBar({
-        //   el: this.layout.$el.find('.bottomBar-container'),
-        // });
-
         this.resultsSmall = new ResultsSmall({
-          el: this.layout.$el.find('.resultsSmall-container'),
+          el: this.layout.$el.find('.resultsSmall-container')
         });
 
         this.report = new Report({
-          el: this.layout.$el.find('.report-container'),
+          el: this.layout.$el.find('.report-container')
         });
 
         this.calculator = new Calculator({
-          el: this.layout.$el.find('.calculator-container'),
+          el: this.layout.$el.find('.calculator-container')
+        });
+
+        this.geocoder = new Geocoder({
+          el: this.layout.$el.find('.geocoder-container')
         });
 
         this.mapController();
