@@ -18,13 +18,15 @@ define([],
     buildTable: function(el, data, values, ref){
       var $table = $(el);
       _.each(ref, function(mon){
+        var shortMonth = mon.abbr;
+        var longMonth = mon.full;
         $table.find('tbody')
           .append($('<tr>')
             .append($('<td style="width:50%">')
-              .text(mon)
+              .text(longMonth)
             )
             .append($('<td>')
-              .text(data[mon][values].toFixed(2))
+              .text(data[shortMonth][values].toFixed(2))
             )
           );   
         

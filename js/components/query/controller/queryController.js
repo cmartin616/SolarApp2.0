@@ -315,12 +315,13 @@ define([
           var monthObj = {};
           var month = dataHandler.getMonth(i);
           months.push(month);
+          console.log(month);
 
           //convert Wh to kWh
           var insolValDiv1000 = insolResults[i] / 1000;
 
           // build object(s)
-          monthObj.month = month;
+          monthObj.month = month.abbr;
           monthObj.insolValue = insolValDiv1000;
           monthObj.sunHrValue = parseFloat(sunHrResults[i]);
           solarObj.insolTotal = solarObj.insolTotal + insolValDiv1000;
@@ -337,7 +338,7 @@ define([
             solarObj.maxSun = parseInt(sunHrValue[i], 10);
           }
 
-          solarObj[month] = monthObj;
+          solarObj[month.abbr] = monthObj;
         }
 
         solarObj.sunHrList = sunHrList;
