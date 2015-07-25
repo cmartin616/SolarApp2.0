@@ -6,29 +6,52 @@
     border-bottom:1px solid #fff
 }
 
-#homeButton #currentLoc #menuButton {
-    border:none!important;
+.appTitle {
+  color: $secondary-color;
+  font-size: 18px;
+  display: inline-block;
 }
 
-#searchBar {
-  padding-top: 8px;
-  margin-top: 0px;
-  height: 40px;
-  width: 100%;
+.appIcon {
+  display: inline-block;
 }
 
-#searchBar_input {
-  width:90%
-  // !important;
+#homeButton, #currentLoc, #menuButton {
+  border:none!important;
 }
 
-.esriGeocoder, .esriGeocoderResults {
-  width:600px!important;
+#basemapDropdownContent {
+  width: 410px;
 }
 
-.esriGeocoderContainer{
-  z-index:100!important;
+.basemapGrid{
+  height: 100px;
+  // width: 100px;
 }
+
+#basemapSelectorText {
+  color: $text-color;
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.basemapText {
+  line-height: 100px;
+  font-size: 18px;
+}
+
+.dropdown-menu > li.activeButton {
+  background-color: #C0C0C0;
+}
+
+.dropdown-menu > li.activeButton >a {
+  color: black;
+}
+
+// .activeButton {
+//     color:#474343;
+//     background-color:#fff
+// }
 
 
 // input#searchBar {
@@ -65,4 +88,12 @@
 
 .homeFindButtons {
   margin-top: 5px;
+}
+
+.baseMapToggle {
+  padding-top: 5px;
+}
+
+.headerColorRamp {
+  height:50px;
 }

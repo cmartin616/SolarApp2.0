@@ -21,8 +21,23 @@
 
 /* remove left/right padding on rows */
 .no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+  padding-right:0;
+  padding-left:0;
+}
+
+.floatRight{
+  float:right;
+}
+
+
+/* Overwrite default dropdown menu*/
+.dropdown-menu > li > a {
+  color: $text-color;
+}
+
+/* Overwrite default nav link*/
+.nav > li > a {
+  color: $text-color;
 }
 
 .textRight {
@@ -31,6 +46,14 @@
 
 .indent {
     margin-left: 3%;
+}
+
+.noBorder {
+  border: 0 none!important;
+}
+
+ul.dropdown-menu,a.dropdown-menu {
+  background-color: $overlay;
 }
 
 
@@ -53,7 +76,7 @@
 }
 
 // bottomBar, navBar
-button.menuButton,a.menuButton,ul.dropdown-menu,a.dropdown-menu,#bookmarkLocation {
+button.menuButton,a.menuButton,,#bookmarkLocation {
   background-color:#474343;
   color:#fff;
   border:1px solid #fff
@@ -84,11 +107,11 @@ button.menuButton,a.menuButton,ul.dropdown-menu,a.dropdown-menu,#bookmarkLocatio
 // }
 
 // resultsSmall
-#closeResults{
-  text-align: right !important;
-  // margin-top:3px;
-  margin-right:6px;
-}
+// #closeResults{
+//   text-align: right !important;
+//   // margin-top:3px;
+//   margin-right:6px;
+// }
 
 // resultsSmall
 #viewReport svg, #emailReport svg, #closeResults svg{

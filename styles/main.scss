@@ -9,15 +9,14 @@
 @import "mixins";
 
 // Components imports go here
-
+@import "general";
 @import "loader";
-@import "bottomBar";
 @import "helpSplash";
 
 @import "resultsSmall";
 @import "layout";
 @import "header";
-@import "general";
+
 @import "report";
 @import "calculator";
-
+@import "geocoder";

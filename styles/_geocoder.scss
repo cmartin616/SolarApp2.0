@@ -1,0 +1,23 @@
+.geocoder-container{
+  position: absolute;
+  top: 70px;
+  left: 60px;
+}
+
+#searchBar {
+  height: 40px;
+  width: 100%;
+}
+
+#searchBar_input {
+  width:90%
+  // !important;
+}
+
+.esriGeocoder, .esriGeocoderResults {
+  width:600px!important;
+}
+
+.esriGeocoderContainer{
+  z-index:100!important;
+}

@@ -5795,6 +5795,129 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* Make text not selectable */
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* Custom button style */
+.btn-solar {
+  color: #fff;
+  background-color: #474343;
+  border-color: #fff; }
+  .btn-solar:focus, .btn-solar.focus {
+    color: #fff;
+    background-color: #2d2a2a;
+    border-color: #bfbfbf; }
+  .btn-solar:hover {
+    color: #fff;
+    background-color: #2d2a2a;
+    border-color: #e0e0e0; }
+  .btn-solar:active, .btn-solar.active, .open > .btn-solar.dropdown-toggle {
+    color: #fff;
+    background-color: #2d2a2a;
+    border-color: #e0e0e0; }
+    .btn-solar:active:hover, .btn-solar:active:focus, .btn-solar:active.focus, .btn-solar.active:hover, .btn-solar.active:focus, .btn-solar.active.focus, .open > .btn-solar.dropdown-toggle:hover, .open > .btn-solar.dropdown-toggle:focus, .open > .btn-solar.dropdown-toggle.focus {
+      color: #fff;
+      background-color: #1a1919;
+      border-color: #bfbfbf; }
+  .btn-solar:active, .btn-solar.active, .open > .btn-solar.dropdown-toggle {
+    background-image: none; }
+  .btn-solar.disabled, .btn-solar.disabled:hover, .btn-solar.disabled:focus, .btn-solar.disabled.focus, .btn-solar.disabled:active, .btn-solar.disabled.active, .btn-solar[disabled], .btn-solar[disabled]:hover, .btn-solar[disabled]:focus, .btn-solar[disabled].focus, .btn-solar[disabled]:active, .btn-solar[disabled].active, fieldset[disabled] .btn-solar, fieldset[disabled] .btn-solar:hover, fieldset[disabled] .btn-solar:focus, fieldset[disabled] .btn-solar.focus, fieldset[disabled] .btn-solar:active, fieldset[disabled] .btn-solar.active {
+    background-color: #474343;
+    border-color: #fff; }
+  .btn-solar .badge {
+    color: #474343;
+    background-color: #fff; }
+
+/* force aspect ratio - 8.5x11 */
+.letterSize {
+  position: relative; }
+  .letterSize:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 75%; }
+  .letterSize > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+/* remove left/right padding on rows */
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0; }
+
+.floatRight {
+  float: right; }
+
+/* Overwrite default dropdown menu*/
+.dropdown-menu > li > a {
+  color: #fff; }
+
+/* Overwrite default nav link*/
+.nav > li > a {
+  color: #fff; }
+
+.textRight {
+  text-align: right; }
+
+.indent {
+  margin-left: 3%; }
+
+.noBorder {
+  border: 0 none !important; }
+
+ul.dropdown-menu, a.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.75); }
+
+/* Reference below for clean up and proper _.scss placement */
+.closeSplash, .showReport, #closeResults, #viewReport, #emailReport, #resultsBigClose {
+  cursor: pointer; }
+
+.imgCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.appButton {
+  height: 40px; }
+
+button.menuButton, a.menuButton, #bookmarkLocation {
+  background-color: #474343;
+  color: #fff;
+  border: 1px solid #fff; }
+
+.iconButton {
+  padding-top: 2px !important;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.iconButton img {
+  height: 20px;
+  width: auto; }
+
+.iconLabel {
+  font-size: 12px; }
+
+#viewReport svg, #emailReport svg, #closeResults svg {
+  padding-top: 5px !important; }
+
+#resultsHisto svg.chart, #sunHrHisto svg.chart {
+  max-width: 100%; }
+
+#resultsHisto img {
+  height: 150px;
+  width: auto;
+  text-align: center; }
+
 #loader {
   height: 140px;
   width: 200px;
@@ -5906,31 +6029,6 @@ button.close {
     height: 48px;
     background-color: #FFC163;
     -o-transform: translateY(-42px); } }
-.baseMapToggle {
-  float: left;
-  width: auto; }
-
-.baseMapToggle button {
-  height: 40px;
-  width: 80px;
-  background-color: #474343;
-  color: #fff; }
-
-.baseMapToggle button.activeButton {
-  color: #474343;
-  background-color: #fff; }
-
-.btn-group_leftButton {
-  border-radius: 40px 0 0 40px; }
-
-.btn-group_rightButton {
-  border-radius: 0 40px 40px 0;
-  margin-right: 40px; }
-
-#resultsButton {
-  display: none;
-  float: right; }
-
 .closeSplash:hover {
   text-decoration: underline; }
 
@@ -5988,7 +6086,9 @@ button.close {
   font-size: 14px;
   /* background-color:#474343; */
   color: #fff;
-  z-index: 5; }
+  z-index: 5;
+  padding-top: 15px;
+  margin-left: 50px; }
 
 .resultsButtonToolbar {
   float: right;
@@ -6000,15 +6100,26 @@ button.close {
   color: #fff;
   z-index: 299;
   border-top: 1px solid #fff;
-  height: 300px;
+  height: 400px;
   width: 100%;
   position: absolute;
-  /*top:213px;*/
-  bottom: 50px;
+  bottom: 0;
+  padding-top: 15px; }
+
+.resultsGeneral {
   text-align: center; }
 
-.resultsSmall-container {
-  height: 300px; }
+#closeResults {
+  float: left; }
+
+.reportControls {
+  float: left;
+  width: 130px;
+  margin-top: 20px; }
+
+.resultsTables {
+  height: 300px;
+  overflow: auto; }
 
 #headerBar {
   height: 50px;
@@ -6017,26 +6128,37 @@ button.close {
   z-index: 40;
   border-bottom: 1px solid #fff; }
 
-#homeButton {
+.appTitle {
+  color: #fff;
+  font-size: 18px;
+  display: inline-block; }
+
+.appIcon {
+  display: inline-block; }
+
+#homeButton, #currentLoc, #menuButton {
   border: none !important; }
 
-#currentLoc {
-  border: none !important; }
+#basemapDropdownContent {
+  width: 410px; }
 
-#searchBar {
-  padding-top: 8px;
-  margin-top: 0px;
-  height: 40px;
-  width: 100%; }
+.basemapGrid {
+  height: 100px; }
 
-#searchBar_input {
-  width: 90%; }
+#basemapSelectorText {
+  color: #fff;
+  font-size: 24px;
+  padding-left: 10px; }
 
-.esriGeocoder, .esriGeocoderResults {
-  width: 600px !important; }
+.basemapText {
+  line-height: 100px;
+  font-size: 18px; }
 
-.esriGeocoderContainer {
-  z-index: 100 !important; }
+.dropdown-menu > li.activeButton {
+  background-color: #C0C0C0; }
+
+.dropdown-menu > li.activeButton > a {
+  color: black; }
 
 #helpMenu a {
   color: #fff; }
@@ -6059,115 +6181,11 @@ button.close {
 .homeFindButtons {
   margin-top: 5px; }
 
-/* Make text not selectable */
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+.baseMapToggle {
+  padding-top: 5px; }
 
-/* Custom button style */
-.btn-solar {
-  color: #fff;
-  background-color: #474343;
-  border-color: #fff; }
-  .btn-solar:focus, .btn-solar.focus {
-    color: #fff;
-    background-color: #2d2a2a;
-    border-color: #bfbfbf; }
-  .btn-solar:hover {
-    color: #fff;
-    background-color: #2d2a2a;
-    border-color: #e0e0e0; }
-  .btn-solar:active, .btn-solar.active, .open > .btn-solar.dropdown-toggle {
-    color: #fff;
-    background-color: #2d2a2a;
-    border-color: #e0e0e0; }
-    .btn-solar:active:hover, .btn-solar:active:focus, .btn-solar:active.focus, .btn-solar.active:hover, .btn-solar.active:focus, .btn-solar.active.focus, .open > .btn-solar.dropdown-toggle:hover, .open > .btn-solar.dropdown-toggle:focus, .open > .btn-solar.dropdown-toggle.focus {
-      color: #fff;
-      background-color: #1a1919;
-      border-color: #bfbfbf; }
-  .btn-solar:active, .btn-solar.active, .open > .btn-solar.dropdown-toggle {
-    background-image: none; }
-  .btn-solar.disabled, .btn-solar.disabled:hover, .btn-solar.disabled:focus, .btn-solar.disabled.focus, .btn-solar.disabled:active, .btn-solar.disabled.active, .btn-solar[disabled], .btn-solar[disabled]:hover, .btn-solar[disabled]:focus, .btn-solar[disabled].focus, .btn-solar[disabled]:active, .btn-solar[disabled].active, fieldset[disabled] .btn-solar, fieldset[disabled] .btn-solar:hover, fieldset[disabled] .btn-solar:focus, fieldset[disabled] .btn-solar.focus, fieldset[disabled] .btn-solar:active, fieldset[disabled] .btn-solar.active {
-    background-color: #474343;
-    border-color: #fff; }
-  .btn-solar .badge {
-    color: #474343;
-    background-color: #fff; }
-
-/* force aspect ratio - 8.5x11 */
-.letterSize {
-  position: relative; }
-  .letterSize:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: 75%; }
-  .letterSize > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-
-/* remove left/right padding on rows */
-.no-gutter > [class*='col-'] {
-  padding-right: 0;
-  padding-left: 0; }
-
-.textRight {
-  text-align: right; }
-
-.indent {
-  margin-left: 3%; }
-
-/* Reference below for clean up and proper _.scss placement */
-.closeSplash, .showReport, #closeResults, #viewReport, #emailReport, #resultsBigClose {
-  cursor: pointer; }
-
-.imgCenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
-.appButton {
-  height: 40px; }
-
-button.menuButton, a.menuButton, ul.dropdown-menu, a.dropdown-menu, #bookmarkLocation {
-  background-color: #474343;
-  color: #fff;
-  border: 1px solid #fff; }
-
-.iconButton {
-  padding-top: 2px !important;
-  padding-bottom: 3px;
-  padding-left: 10px;
-  padding-right: 10px; }
-
-.iconButton img {
-  height: 20px;
-  width: auto; }
-
-.iconLabel {
-  font-size: 12px; }
-
-#closeResults {
-  text-align: right !important;
-  margin-right: 6px; }
-
-#viewReport svg, #emailReport svg, #closeResults svg {
-  padding-top: 5px !important; }
-
-#resultsHisto svg.chart, #sunHrHisto svg.chart {
-  max-width: 100%; }
-
-#resultsHisto img {
-  height: 150px;
-  width: auto;
-  text-align: center; }
+.headerColorRamp {
+  height: 50px; }
 
 #reportModal {
   width: 60%;
@@ -6214,5 +6232,23 @@ button.menuButton, a.menuButton, ul.dropdown-menu, a.dropdown-menu, #bookmarkLoc
 
 #closeCalculator {
   margin-top: 5px; }
+
+.geocoder-container {
+  position: absolute;
+  top: 70px;
+  left: 60px; }
+
+#searchBar {
+  height: 40px;
+  width: 100%; }
+
+#searchBar_input {
+  width: 90%; }
+
+.esriGeocoder, .esriGeocoderResults {
+  width: 600px !important; }
+
+.esriGeocoderContainer {
+  z-index: 100 !important; }
 
 /*# sourceMappingURL=main.css.map */
