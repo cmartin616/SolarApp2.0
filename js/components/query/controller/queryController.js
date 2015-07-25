@@ -42,10 +42,10 @@ define([
 
       dataQuery: function(e) {
 
-        
-        /* NEVER USED */
         var mp = esri.geometry.webMercatorToGeographic(e.mapPoint);
         app.query.point = e.mapPoint;
+
+        // store point as lat/lng
         app.query.latLngPt = mp;
 
         // removes all previous graphics (previous click)
@@ -309,10 +309,12 @@ define([
         var sunTotal = 0;
         var insolList = [];
         var sunHrList = [];
+        var months = [];
 
         for (var i = 0; i < 12; i++) {
           var monthObj = {};
           var month = dataHandler.getMonth(i);
+          months.push(month);
 
           //convert Wh to kWh
           var insolValDiv1000 = insolResults[i] / 1000;
@@ -320,7 +322,7 @@ define([
           // build object(s)
           monthObj.month = month;
           monthObj.insolValue = insolValDiv1000;
-          monthObj.sunHrValue = sunHrResults[i];
+          monthObj.sunHrValue = parseFloat(sunHrResults[i]);
           solarObj.insolTotal = solarObj.insolTotal + insolValDiv1000;
           solarObj.sunTotal = solarObj.sunTotal + sunHrValue[i];
 
@@ -340,6 +342,9 @@ define([
 
         solarObj.sunHrList = sunHrList;
         solarObj.insolList = insolList;
+        solarObj.months = months;
+
+
 
         // total = 0;
         // for (i = 0; i < 12; i++) {
@@ -351,12 +356,12 @@ define([
         //   }
         // }
 
-        var data = {
+        // var data = {
 
-          'month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          'insolValue': [insolValueCorrected[0], insolValueCorrected[1], insolValueCorrected[2], insolValueCorrected[3], insolValueCorrected[4], insolValueCorrected[5], insolValueCorrected[6], insolValueCorrected[7], insolValueCorrected[8], insolValueCorrected[9], insolValueCorrected[10], insolValueCorrected[11]],
-          'sunHrValue': [sunHrResults[0], sunHrResults[1], sunHrResults[2], sunHrResults[3], sunHrResults[4], sunHrResults[5], sunHrResults[6], sunHrResults[7], sunHrResults[8], sunHrResults[9], sunHrResults[10], sunHrResults[11]]
-        };
+        //   'month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        //   'insolValue': [insolValueCorrected[0], insolValueCorrected[1], insolValueCorrected[2], insolValueCorrected[3], insolValueCorrected[4], insolValueCorrected[5], insolValueCorrected[6], insolValueCorrected[7], insolValueCorrected[8], insolValueCorrected[9], insolValueCorrected[10], insolValueCorrected[11]],
+        //   'sunHrValue': [sunHrResults[0], sunHrResults[1], sunHrResults[2], sunHrResults[3], sunHrResults[4], sunHrResults[5], sunHrResults[6], sunHrResults[7], sunHrResults[8], sunHrResults[9], sunHrResults[10], sunHrResults[11]]
+        // };
           //$("#resultsBig").html("<iframe src='" + resultsiFrameURL + "&m=" + JSON.stringify(data) + "' width='670px' height='800px' style='overflow-x:scroll;overflow-y:scroll;'><p>Your browser does not support iFrames.</p></iframe>");
           // <div id="resultsBigClose" style="padding-right:10px">( x )</div>
           // query time
@@ -375,11 +380,15 @@ define([
         // create histos
         // 
         // create Solar Insol histo
-        this.drawChart(solarObj, solarObj.insolList, 220, '#resultsHisto', 'Solar Insolation By Month (kWh)', 2, 20);
+        this.drawChart(solarObj, solarObj.insolList, 220, '#resultsHisto', '', 2, 20);
 
         // create Sun Hrs histo
         this.drawChart(solarObj, solarObj.sunHrList, 500, '#sunHrHisto', 'Sun Hours By Month', 2, -40);
-        
+
+        // store results
+        app.solarObj = solarObj;
+        resultsSmallController.buildTable('#insolationTable', app.solarObj, 'insolValue', app.solarObj.months);
+        resultsSmallController.buildTable('#sunHoursTable', app.solarObj, 'sunHrValue', app.solarObj.months);
       },
 
       drawChart: function (data, dataAttr, max, div, title, titleOffset, titleModifier) {
@@ -390,9 +399,9 @@ define([
             'bottom': 50,
             'left': 50
           },
-          width = 440,
-          height = 160;
-        var barWidth = 10;
+          width = 600,
+          height = 260;
+        var barWidth = 20;
 
         var months = [];
         _.each(data, function(items){
