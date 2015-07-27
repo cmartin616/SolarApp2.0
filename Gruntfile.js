@@ -66,7 +66,8 @@ module.exports = function(grunt) {
               'bower_components/modernizr/modernizr.js',
               'bower_components/underscore/underscore-min.js',
               'bower_components/underscore/underscore-min.map',
-              'bower_components/jspdf/dist/jspdf.min.js'
+              'bower_components/jspdf/dist/jspdf.min.js',
+              'bower_components/js-cookie/src/js.cookie.js'
             ],
             dest: './lib',
             flatten: true

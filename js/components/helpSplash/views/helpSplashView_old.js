@@ -46,6 +46,7 @@ define([
           $('#helpScreen').hide();
         });
 
+
       }
 
     });
