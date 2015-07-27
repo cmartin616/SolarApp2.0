@@ -41,11 +41,11 @@
 }
 
 .textRight {
-    text-align: right;
+  text-align: right;
 }
 
 .indent {
-    margin-left: 3%;
+  margin-left: 3%;
 }
 
 .noBorder {
@@ -54,6 +54,11 @@
 
 ul.dropdown-menu,a.dropdown-menu {
   background-color: $overlay;
+}
+
+/* Modals */
+.modal-dialog{
+  width:auto;
 }
 
 
