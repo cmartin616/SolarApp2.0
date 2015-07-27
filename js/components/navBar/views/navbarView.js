@@ -123,6 +123,11 @@ define([
           streetLayer.hide();
         }
 
+        $('#helpMenu').on('click', function(){
+          console.log('i saw the gd button');
+          $('#helpSplashModal').modal('show');
+        });
+
       }
     });
     return Navbar;

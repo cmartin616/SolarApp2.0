@@ -6048,7 +6048,6 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   margin: auto; }
 
 #helpScreen {
-  display: none;
   position: absolute;
   padding-top: 5px;
   padding-left: 60px;
