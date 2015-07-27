@@ -124,7 +124,6 @@ define([
         }
 
         $('#helpMenu').on('click', function(){
-          console.log('i saw the gd button');
           $('#helpSplashModal').modal('show');
         });
 
