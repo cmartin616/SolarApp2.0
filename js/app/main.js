@@ -11,6 +11,7 @@ define([
     'components/calculator/views/calculatorView',
     'components/geocoder/views/geocoderView',
 
+    'components/helpSplash/controller/helpSplashController',
     'components/query/controller/queryController',
 
     'esri/basemaps',
@@ -29,7 +30,7 @@ define([
 
     Navbar, HelpSplash, LoadSplash, ResultsSmall, Report, Calculator, Geocoder,
 
-    query,
+    helpSplashController, query,
 
     esriBasemaps, esriConfig, TiledLayer, ImageLayer, ImageParams, RasterFunction, Map
 
@@ -170,6 +171,8 @@ define([
         // Initialize query object to hold data
         app.query = {};
 
+        
+
         this.navbar = new Navbar({
           el: this.layout.$el.find('.navbar-container')
         });
@@ -197,6 +200,12 @@ define([
         this.geocoder = new Geocoder({
           el: this.layout.$el.find('.geocoder-container')
         });
+
+        /* Handle splash display */
+        helpSplashController.checkDontShow();
+
+        /* Enable tool tips */
+        // $('[data-toggle="tooltip"]').tooltip();
 
         this.mapController();
       },
