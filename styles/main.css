@@ -5795,6 +5795,11 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* Original branding */
+/* Made in Minnesota Branding */
+body {
+  font-family: Trebuchet MS; }
+
 /* Make text not selectable */
 .noselect {
   -webkit-touch-callout: none;
@@ -5875,7 +5880,7 @@ button.close {
   border: 0 none !important; }
 
 ul.dropdown-menu, a.dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.75); }
+  background-color: rgba(0, 0, 0, 0.85); }
 
 /* Modals */
 .modal-dialog {
@@ -5893,10 +5898,10 @@ ul.dropdown-menu, a.dropdown-menu {
 .appButton {
   height: 40px; }
 
-button.menuButton, a.menuButton, #bookmarkLocation {
+.menuButton {
   background-color: #474343;
   color: #fff;
-  border: 1px solid #fff; }
+  border: none; }
 
 .iconButton {
   padding-top: 2px !important;
@@ -5927,7 +5932,7 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   width: 200px;
   top: 300px;
   left: 300px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   z-index: 20;
   border: 2px solid #fff;
@@ -6033,14 +6038,22 @@ button.menuButton, a.menuButton, #bookmarkLocation {
     height: 48px;
     background-color: #FFC163;
     -o-transform: translateY(-42px); } }
-#helpSplashModal {
+.helpSplashModal {
   width: 60%;
-  height: 60%;
+  height: auto;
+  max-height: 75%;
   margin: auto; }
 
+.helpSplashModal .modal-dialog {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
 .helpSplash {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   color: #fff; }
+
+.dontShowText {
+  margin-right: 15px; }
 
 #website {
   position: relative;
@@ -6053,10 +6066,14 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   font-size: 15px;
   color: #fff; }
 
-#viewReport a:visited, #viewReport a:hover, #viewReport a:link, #viewReport a:active, #emailReport a:visited, #emailReport a:hover, #emailReport a:link, #emailReport a:active {
+#viewReport a:visited, #viewReport a:hover, #viewReport a:link, #viewReport a:active {
   font-size: 18px;
   color: #fff;
   text-decoration: none; }
+
+#resultsSmall button a {
+  font-size: 14px;
+  color: #fff; }
 
 .resultsDisplay {
   display: inline-block;
@@ -6072,7 +6089,7 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   margin-top: 3px; }
 
 #resultsSmall {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   font-size: 18px;
   color: #fff;
   z-index: 299;
@@ -6113,9 +6130,6 @@ button.menuButton, a.menuButton, #bookmarkLocation {
 .appIcon {
   display: inline-block; }
 
-#homeButton, #currentLoc, #menuButton {
-  border: none !important; }
-
 #basemapDropdownContent {
   width: 410px; }
 
@@ -6131,29 +6145,32 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   line-height: 100px;
   font-size: 18px; }
 
-.dropdown-menu > li.activeButton {
+/* Controls active basemap in both menu versions */
+.dropdown-menu li.activeButton {
   background-color: #C0C0C0; }
 
-.dropdown-menu > li.activeButton > a {
-  color: black; }
+#menuDropdown {
+  width: 225px; }
 
-#helpMenu a {
+.menuTopic {
+  color: #fff;
+  font-size: 16px;
+  padding-left: 10px; }
+
+.menuItem {
+  padding-left: 25px; }
+
+.helpMenu a {
   color: #fff; }
 
-#helpMenu a:hover {
+.helpMenu a:hover {
   color: #000 !important;
   text-decoration: none; }
 
-#helpImageContainer {
-  display: inline-block; }
-
-.helpImage {
-  width: 50%;
-  float: left; }
-
 .helpImage img {
   height: 30px;
-  width: auto; }
+  width: auto;
+  margin-bottom: 10px; }
 
 .homeFindButtons {
   margin-top: 5px; }
@@ -6187,7 +6204,7 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   margin-top: 20px; }
 
 #calculator {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   font-size: 18px;
   color: #fff;
   z-index: 299;
@@ -6212,15 +6229,13 @@ button.menuButton, a.menuButton, #bookmarkLocation {
   top: 70px;
   left: 60px; }
 
-#searchBar {
-  height: 40px;
-  width: 100%; }
-
 #searchBar_input {
   width: 90%; }
 
-.esriGeocoder, .esriGeocoderResults {
-  width: 600px !important; }
+.simpleGeocoder#searchBar .esriGeocoderContainer {
+  width: 100%;
+  max-width: 600px;
+  min-width: 500px; }
 
 .esriGeocoderContainer {
   z-index: 100 !important; }

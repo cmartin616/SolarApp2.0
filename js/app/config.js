@@ -28,6 +28,8 @@ define(['esri/symbols/PictureMarkerSymbol'],
       applicationTitle: 'MN Solar Suitability Analysis App',
       apiKey: 'AIzaSyCI5rFXoNNM-IGDP-BZ1opjXTtB9wZalEI',
 
+      emailAddress: 'test@testing.com',
+
       // Esri Basemap Urls
       imagery: 'http://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer',
       streets: 'http://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/',

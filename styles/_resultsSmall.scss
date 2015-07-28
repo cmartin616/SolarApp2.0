@@ -1,8 +1,20 @@
-#viewReport a:visited, #viewReport a:hover, #viewReport a:link, #viewReport a:active, #emailReport a:visited, #emailReport a:hover, #emailReport a:link, #emailReport a:active{
-  font-size: 18px;
+#viewReport a:visited, #viewReport a:hover, #viewReport a:link, #viewReport a:active{
+    font-size: 18px;
   color: #fff;
   text-decoration:none;
 }
+
+#resultsSmall button a{
+    font-size: 14px;
+    color: $text-color;
+}
+
+
+// #emailReport a:visited, #emailReport a:hover, #emailReport a:link, #emailReport a:active{
+//   font-size: 18px;
+//   color: #fff;
+//   text-decoration:none;
+// }
 
 .resultsDisplay {
     display:inline-block;

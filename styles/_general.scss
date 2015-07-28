@@ -1,3 +1,7 @@
+body {
+  font-family: $font;
+}
+
 /* Make text not selectable */
 .noselect {
     -webkit-touch-callout:none;
@@ -81,10 +85,10 @@ ul.dropdown-menu,a.dropdown-menu {
 }
 
 // bottomBar, navBar
-button.menuButton,a.menuButton,,#bookmarkLocation {
-  background-color:#474343;
-  color:#fff;
-  border:1px solid #fff
+.menuButton {
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: none;
 }
 
 // navBar

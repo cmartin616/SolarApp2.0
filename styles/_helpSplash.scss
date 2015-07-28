@@ -1,7 +1,13 @@
-#helpSplashModal {
+.helpSplashModal {
   width: 60%;
-  height: 60%;
+  height: auto;
+  max-height: 75%;
   margin: auto;
+}
+
+.helpSplashModal .modal-dialog {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .helpSplash {
@@ -19,6 +25,10 @@
 
 .closeSplash {
 
+}
+
+.dontShowText {
+  margin-right: 15px;
 }
 
 // #colorRamp {
