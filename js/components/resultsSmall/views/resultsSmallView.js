@@ -25,10 +25,13 @@ define([
       },
 
       render: function() {
-
         var template = _.template(viewTemplate);
+
+        /* Options are model variables accessible from html templates */
         var options = {
-          title: config.applicationTitle
+          emailAddress: config.emailAddress,
+          emailSubject: 'Testing',
+          emailBody: 'Still testing'
         };
 
         this.$el.html(template(options));

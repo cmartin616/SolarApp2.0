@@ -42,7 +42,8 @@
                 </div>
                 <div>
                     <button type="button" class="btn btn-default btn-solar reportControls" id="emailReport">
-                        <span id="emailReportLink">Email Report</span>
+                        <!-- <span id="emailReportLink">Email Report</span> -->
+                        <a href="mailto:<%= emailAddress %>?subject=<%= emailSubject %>&amp;body=<%= emailBody %>">Email Report</a>
                         <i class="fa fa-envelope-o"></i>
                     </button>
                 </div>
