@@ -3,6 +3,7 @@
 define([
   'app/config',
   'app/utils/dataHandler',
+  'app/Data/sunHours',
 
   'components/loadSplash/controller/loadSplashController',
   'components/map/controller/mapController',
@@ -19,7 +20,7 @@ define([
 ],
 
   function(
-    config, dataHandler,
+    config, dataHandler, sunHours,
 
     loadSplashController, mapController, resultsSmallController, calculatorController,
 
@@ -315,7 +316,6 @@ define([
           var monthObj = {};
           var month = dataHandler.getMonth(i);
           months.push(month);
-          console.log(month);
 
           //convert Wh to kWh
           var insolValDiv1000 = insolResults[i] / 1000;
@@ -345,8 +345,12 @@ define([
         solarObj.insolList = insolList;
         solarObj.months = months;
 
-
-
+        var nearestLat = Math.round(app.query.latLngPt.y);
+        // console.log(sunHours[nearestLat]);
+        _.each(sunHours[nearestLat], function(value, month){
+          // console.log(solarObj[month]);
+          solarObj[month].shadeHrValue = value;
+        });
         // total = 0;
         // for (i = 0; i < 12; i++) {
         //   // var month = dataHandler.getMonth(i);
