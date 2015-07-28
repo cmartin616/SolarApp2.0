@@ -40,12 +40,12 @@ define([
 
       initComponents: function() {
         // Home button
-        $('#homeButton').on('click', function() {
+        $('.homeButton').on('click', function() {
           app.map.centerAndZoom(new Point([config.centerLng, config.centerLat]), config.defaultZoom);
         });
 
         // Find Me button       
-        $('#currentLoc').click(function() {
+        $('.findMe').click(function() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(zoomToLocation, locationError);
           } else {
@@ -90,31 +90,37 @@ define([
         var streetLayer = app.map.getLayer('street');
 
         // Toggle basemaps
-        $('#solarButton').on('click', function() {
+        $('.solarButton').on('click', function() {
           buttonClassRemove();
-          $(this).addClass('activeButton');
+          /* $(this) will only work for a single instance */
+          // $(this).addClass('activeButton');
+          $('.solarButton').addClass('activeButton');
           toggleBasemapView();
           solarLayer.show();
         });
 
-        $('#aerialButton').on('click', function() {
+        $('.aerialButton').on('click', function() {
           buttonClassRemove();
-          $(this).addClass('activeButton');
+          /* $(this) will only work for a single instance */
+          // $(this).addClass('activeButton');
+          $('.aerialButton').addClass('activeButton');
           toggleBasemapView();
           aerialLayer.show();
         });
 
-        $('#streetButton').on('click', function() {
+        $('.streetButton').on('click', function() {
           buttonClassRemove();
-          $(this).addClass('activeButton');
+          /* $(this) will only work for a single instance */
+          // $(this).addClass('activeButton');
+          $('.streetButton').addClass('activeButton');
           toggleBasemapView();
           streetLayer.show();
         });
 
         function buttonClassRemove() {
-          $('#solarButton').removeClass('activeButton');
-          $('#aerialButton').removeClass('activeButton');
-          $('#streetButton').removeClass('activeButton');
+          $('.solarButton').removeClass('activeButton');
+          $('.aerialButton').removeClass('activeButton');
+          $('.streetButton').removeClass('activeButton');
         }
 
         function toggleBasemapView() {
@@ -123,8 +129,8 @@ define([
           streetLayer.hide();
         }
 
-        $('#helpMenu').on('click', function(){
-          $('#helpSplashModal').modal('show');
+        $('.helpMenu').on('click', function(){
+          $('.helpSplashModal').modal('show');
         });
 
       }
