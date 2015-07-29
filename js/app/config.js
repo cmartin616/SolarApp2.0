@@ -29,6 +29,7 @@ define(['esri/symbols/PictureMarkerSymbol'],
       apiKey: 'AIzaSyCI5rFXoNNM-IGDP-BZ1opjXTtB9wZalEI',
 
       emailAddress: 'test@testing.com',
+      appDomain: 'http://solar.maps.umn.edu/app',
 
       // Esri Basemap Urls
       imagery: 'http://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer',

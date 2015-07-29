@@ -39,6 +39,7 @@ define([
         loadSplashController.showLoader();
         this.dataQuery(e);
         this.solarGPTool(e);
+        resultsSmallController.buildLink();
       },
 
       dataQuery: function(e) {

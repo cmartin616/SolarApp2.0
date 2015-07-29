@@ -1,7 +1,13 @@
 /* global define, app, _*/
-define([],
+define([
 
-  function() {
+  'app/config'
+
+],
+
+  function(
+    config
+    ) {
 
   return {
 
@@ -29,9 +35,18 @@ define([],
               .text(data[shortMonth][values].toFixed(2))
             )
           );   
-        
       });
-      
+    },
+
+    buildLink: function(){
+      var url = config.appDomain + '/index.html?lat=' + app.query.latLngPt.y + '&long=' + app.query.latLngPt.x;
+
+      var emailSubject = 'Your requested solar report';
+      var emailBody = url;
+
+      var link = 'mailto:' + config.emailAddress + '?' + emailSubject + '&amp;body=' + emailBody;
+
+      $('#emailLink').attr('href', link);
     }
   };
 });

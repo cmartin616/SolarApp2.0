@@ -27,14 +27,7 @@ define([
       render: function() {
         var template = _.template(viewTemplate);
 
-        /* Options are model variables accessible from html templates */
-        var options = {
-          emailAddress: config.emailAddress,
-          emailSubject: 'Testing',
-          emailBody: 'Still testing'
-        };
-
-        this.$el.html(template(options));
+        this.$el.html(template());
         this.$el.hide();
         this.startup();
       },
@@ -67,7 +60,7 @@ define([
         // $('#viewReportLink').html('<a class="fancybox fancybox.iframe" href="' + resultsiFrameURL + '&m=' + JSON.stringify(data) + '">View Report</a>');
         // $('#emailReportLink').html('<a href="http://solar.maps.umn.edu/share_point.php?x=' + params.PointX + '&y=' + params.PointY + '">Email Report</a>');
       }
-
+      
     });
     return resultsSmall;
   });
