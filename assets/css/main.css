@@ -5854,6 +5854,11 @@ body {
     right: 0;
     bottom: 0; }
 
+/* remove 30px top/bottom margin on modal dialogs - overflow-scroll looks weird without it */
+.modal-dialog {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
 /* remove left/right padding on rows */
 .no-gutter > [class*='col-'] {
   padding-right: 0;
@@ -6184,7 +6189,9 @@ ul.dropdown-menu, a.dropdown-menu {
 
 #reportModal {
   width: 60%;
-  margin: auto; }
+  margin: auto;
+  height: auto;
+  max-height: 90%; }
 
 #reportHeader {
   height: 85px; }
@@ -6202,7 +6209,19 @@ ul.dropdown-menu, a.dropdown-menu {
   padding-left: 0px; }
 
 #reportSolarMap-container, #reportAerialMap-container {
-  margin-top: 20px; }
+  margin-top: 20px;
+  position: relative; }
+
+#reportAngleControls {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  z-index: 100;
+  width: 115px; }
+
+#reportAngleBox {
+  width: 50px;
+  text-align: center; }
 
 #calculator {
   background-color: rgba(0, 0, 0, 0.85);

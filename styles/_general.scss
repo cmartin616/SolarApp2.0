@@ -22,6 +22,12 @@ body {
 .letterSize{
     @include aspect-ratio(4, 3);
 }
+/* remove 30px top/bottom margin on modal dialogs - overflow-scroll looks weird without it */
+
+.modal-dialog {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 /* remove left/right padding on rows */
 .no-gutter > [class*='col-'] {
