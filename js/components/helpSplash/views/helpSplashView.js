@@ -72,7 +72,7 @@ define([
         });
 
         $('.closeSplash').on('click', function(){
-          $('#helpSplashModal').modal('hide');
+          $('.helpSplashModal').modal('hide');
         });
 
       }
