@@ -2,20 +2,25 @@
 define([
   'app/config',
 
+  'dojo/_base/lang',
+
   'components/map/controller/mapController',
   'components/report/controller/imageUri',
 
   'esri/layers/ArcGISImageServiceLayer',
   'esri/map',
+  'esri/toolbars/edit'
 
 ],
 
   function(
     config,
 
+    lang,
+
     mapController, imageUri,
 
-    ImageLayer, Map
+    ImageLayer, Map, Edit
     ) {
 
   return {
@@ -72,27 +77,35 @@ define([
           center: [app.query.latLngPt.x, app.query.latLngPt.y],
           // center: [config.centerLng, config.centerLat],
           showAttribution: false,
-          zoom: 13
-            // extent: new Extent(this.config.extent)
+          zoom: 18,
+          minZoom: 18
         });
 
         if (mapName === 'reportSolarMap'){
           app[mapName].addLayer(solarLayer);
-        }
+          app[mapName].on('load', function(){
+            mapController.placePoint(app.query.latLngPt, app[mapName], config.pinSymbol);
+          });
 
-        app[mapName].on('load', function(){
-          mapController.placePoint(app.query.latLngPt, app[mapName]);
-        });
+        } else {
+          app[mapName].on('load', lang.hitch(this, function(){
+            mapController.placePoint(app.query.latLngPt, app[mapName], config.solarPanelSymbol);
+            this.initEdit();
+          }));
+        }
+        
       } else {
-        console.log('exis');
         mapController.removePoint(app[mapName]);
         mapController.centerMap(app.query.latLngPt, app[mapName]);
-        mapController.placePoint(app.query.latLngPt, app[mapName]);
-      }
-      
-      
+        if (mapName === 'reportSolarMap'){
+          mapController.placePoint(app.query.latLngPt, app[mapName], config.pinSymbol);
+        } else {
+          mapController.placePoint(app.query.latLngPt, app[mapName], config.solarPanelSymbol);
+        }
 
-      
+      }
+
+      app[mapName].resize();
 
     },
 
@@ -164,7 +177,6 @@ define([
       return doc;
     },
 
-
     saveToPdf: function(doc){
       var docName = 'default.pdf';
       if (app.query.siteName){
@@ -176,7 +188,54 @@ define([
     printPdf: function(doc){
       console.log('printPDF');
       // doc.autoPrint();
-    }
+    },
+
+    initEdit: function(){
+      console.log(app.reportAerialMap.graphics);
+      var editToolbar = new Edit(app.reportAerialMap);
+      console.log('edit');
+      var selected;
+      app.reportAerialMap.graphics.on('mouse-over', function(evt) {
+        selected = evt.graphic;
+        app.reportAerialMap.selectedGraphic = selected;
+      });
+
+      app.reportAerialMap.on('click', function(){
+        editToolbar.activate(Edit.MOVE, selected);
+      });
+
+      app.reportAerialMap.graphics.on('mouse-up', function(evt){
+        // var mp = mapController.convertToGeographic(evt.mapPoint);
+        // app.reportAerialMap.selectedGraphic.geometry.x = mp.x;
+        // app.reportAerialMap.selectedGraphic.geometry.y = mp.y;
+      });
+
+
+
+    },
+
+    increaseAngle: function(){
+      $('#reportAngleBox').val( function(i, oldval) {
+        var newVal = parseInt( oldval, 10) + 1;
+        if (newVal >= 360){
+          return 0;
+        } else {
+          return newVal;
+        }
+      });
+    },
+
+    decreaseAngle: function(){
+      $('#reportAngleBox').val( function(i, oldval) {
+        var newVal = parseInt( oldval, 10) - 1;
+        if (newVal < 0){
+          return 359;
+        } else {
+          return newVal;
+        }
+      });
+
+    },
 
   };
 });

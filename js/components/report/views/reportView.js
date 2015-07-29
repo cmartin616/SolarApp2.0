@@ -2,11 +2,11 @@
 define([
     'app/config',
 
+    'components/map/controller/mapController',
     'components/report/views/resultsView',
     'components/report/controller/reportController',
 
     'esri/layers/ArcGISImageServiceLayer',
-    // 'esri/layers/ImageServiceParameters',
     'esri/map',
 
     'dojo/text!../templates/reportTemplate.html'
@@ -15,7 +15,7 @@ define([
   function(
     config,
 
-    Results, reportController,
+    mapController, Results, reportController,
 
     ImageLayer, Map,
 
@@ -70,6 +70,20 @@ define([
           el: $('.reportResults-container'),
         });
 
+        $('#reportAngleBox').on('input', function(){
+          mapController.rotatePoint();
+        });
+
+        $('.angleUpButton').on('click', function(){
+          reportController.increaseAngle();
+          mapController.rotatePoint();
+        });
+
+        $('.angleDownButton').on('click', function(){
+          reportController.decreaseAngle();
+          mapController.rotatePoint();
+        });
+
         // var solarMap = new Map('reportSolarMap-container', {
         //   basemap: 'solar',
         //   center: [app.query.point.x, app.query.point.y],
@@ -97,8 +111,7 @@ define([
         //   zoom: 13
         //     // extent: new Extent(this.config.extent)
         // });
-
-      },
+      }
 
     });
     return report;

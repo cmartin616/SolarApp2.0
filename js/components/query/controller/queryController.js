@@ -32,7 +32,6 @@ define([
     return {
 
       pixelQuery: function(e) {
-        // $('#resultsSmall').hide();
         calculatorController.hideCalculator();
         resultsSmallController.hideResults();
         loadSplashController.placeLoader();
@@ -44,7 +43,7 @@ define([
 
       dataQuery: function(e) {
 
-        var mp = esri.geometry.webMercatorToGeographic(e.mapPoint);
+        var mp = webMercatorUtils.webMercatorToGeographic(e.mapPoint);
         app.query.point = e.mapPoint;
 
         // store point as lat/lng
@@ -52,7 +51,7 @@ define([
 
         // removes all previous graphics (previous click)
         mapController.clearGraphics();
-        mapController.placePoint(app.query.point, app.map);
+        mapController.placePoint(app.query.point, app.map, config.pinSymbol);
 
         // Clear results div
         $('#results').html('');

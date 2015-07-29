@@ -1,4 +1,4 @@
-/* global define, app, Backbone, _ */
+/* global define, Backbone, _ */
 define([
     'app/config',
 
