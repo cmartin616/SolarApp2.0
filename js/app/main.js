@@ -69,7 +69,7 @@ define([
             opacity: 1,
             visibility: true,
             showAttribution: false,
-            url: config.basemapUrl
+            url: config.imagery
           }],
           title: 'Solar'
         };
