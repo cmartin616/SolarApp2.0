@@ -18,7 +18,14 @@ define([
   ) {
     var Navbar = Backbone.View.extend({
 
-      events: {},
+      events: {
+
+        'click .appIssues, .dataIssues': 'showModal'
+      },
+
+      showModal: function(e){
+        $('.'+e.currentTarget.className+'Modal').modal('show');
+      },
 
       initialize: function() {
         this.render();
@@ -129,9 +136,18 @@ define([
           streetLayer.hide();
         }
 
-        $('.helpMenu').on('click', function(){
-          $('.helpSplashModal').modal('show');
+        $('.appHelp').on('click', function(){
+
+          $('.appHelpModal').modal('show');
         });
+
+        $('.dataIssues').on('click', function(){
+          $('.dataIssuesModal').modal('show');
+        });
+
+        // $('.appIssues').on('click', function(){
+        //   $('.appIssuesModal').modal('show');
+        // });
 
       }
     });
