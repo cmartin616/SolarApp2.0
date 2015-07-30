@@ -10,6 +10,8 @@ define([
     'components/report/views/reportView',
     'components/calculator/views/calculatorView',
     'components/geocoder/views/geocoderView',
+    'components/dataIssues/views/dataIssuesView',
+    'components/appIssues/views/appIssuesView',
 
     'components/helpSplash/controller/helpSplashController',
     'components/query/controller/queryController',
@@ -28,7 +30,7 @@ define([
 
     config, Layout,
 
-    Navbar, HelpSplash, LoadSplash, ResultsSmall, Report, Calculator, Geocoder,
+    Navbar, HelpSplash, LoadSplash, ResultsSmall, Report, Calculator, Geocoder, DataIssues, AppIssues,
 
     helpSplashController, query,
 
@@ -199,6 +201,14 @@ define([
 
         this.geocoder = new Geocoder({
           el: this.layout.$el.find('.geocoder-container')
+        });
+
+        this.dataIssues = new DataIssues({
+          el: this.layout.$el.find('.dataIssues-container')
+        });
+
+        this.appIssues = new AppIssues({
+          el: this.layout.$el.find('.appIssues-container')
         });
 
         /* Handle splash display */
